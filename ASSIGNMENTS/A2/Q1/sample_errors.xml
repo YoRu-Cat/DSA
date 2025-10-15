@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <student id="69>
+    <name>Magia Negra</name>
+    <age>20</age>
+  </person>
+  <student id='96'>
+    <name>YoRu</name>
+    <course>CS
+  </student>
+  <unclosed>
+</root>
