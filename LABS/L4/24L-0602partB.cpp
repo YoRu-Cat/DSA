@@ -2,15 +2,16 @@
 #include <string>
 using namespace std;
 
-
 // Circular doubly linked list node
 template <typename T>
-class CircularDNode {
+class CircularDNode
+{
 public:
     T data;
-    CircularDNode<T>* next;
-    CircularDNode<T>* prev;
-    CircularDNode(T data = T()) {
+    CircularDNode<T> *next;
+    CircularDNode<T> *prev;
+    CircularDNode(T data = T())
+    {
         this->data = data;
         next = this; // point to itself initially
         prev = this;
@@ -18,20 +19,25 @@ public:
 };
 
 template <typename T>
-class CircularDoublyLinkedList {
+class CircularDoublyLinkedList
+{
 private:
-    CircularDNode<T>* tail; // Points to last node, tail->next is head
+    CircularDNode<T> *tail; // Points to last node, tail->next is head
 public:
-    CircularDoublyLinkedList() {
+    CircularDoublyLinkedList()
+    {
         tail = NULL;
     }
     // Insert at end
-    void insertAtEnd(T data) {
-        CircularDNode<T>* newNode = new CircularDNode<T>(data);
-        if (tail == NULL) {
+    void insertAtEnd(T data)
+    {
+        CircularDNode<T> *newNode = new CircularDNode<T>(data);
+        if (tail == NULL)
+        {
             tail = newNode;
         }
-        else {
+        else
+        {
             newNode->next = tail->next;
             newNode->prev = tail;
             tail->next->prev = newNode;
@@ -40,12 +46,15 @@ public:
         }
     }
     // Insert at beginning
-    void insertAtBeginning(T data) {
-        CircularDNode<T>* newNode = new CircularDNode<T>(data);
-        if (tail == NULL) {
+    void insertAtBeginning(T data)
+    {
+        CircularDNode<T> *newNode = new CircularDNode<T>(data);
+        if (tail == NULL)
+        {
             tail = newNode;
         }
-        else {
+        else
+        {
             newNode->next = tail->next;
             newNode->prev = tail;
             tail->next->prev = newNode;
@@ -53,61 +62,75 @@ public:
         }
     }
     // Traverse forward and print
-    void traverse() {
-        if (tail == NULL) {
+    void traverse()
+    {
+        if (tail == NULL)
+        {
             cout << "List is empty\n";
             return;
         }
-        CircularDNode<T>* temp = tail->next; // head
-        do {
+        CircularDNode<T> *temp = tail->next; // head
+        do
+        {
             cout << temp->data << " ";
             temp = temp->next;
         } while (temp != tail->next);
         cout << endl;
     }
     // Traverse backward and print
-    void traverseBackward() {
-        if (tail == NULL) {
+    void traverseBackward()
+    {
+        if (tail == NULL)
+        {
             cout << "List is empty\n";
             return;
         }
-        CircularDNode<T>* temp = tail; // tail is last node
-        do {
+        CircularDNode<T> *temp = tail; // tail is last node
+        do
+        {
             cout << temp->data << " ";
             temp = temp->prev;
         } while (temp != tail);
         cout << endl;
     }
     // Delete from beginning
-    void deleteFromBeginning() {
-        if (tail == NULL) {
+    void deleteFromBeginning()
+    {
+        if (tail == NULL)
+        {
             cout << "List is empty\n";
             return;
         }
-        CircularDNode<T>* head = tail->next;
-        if (head == tail) { // Only one node
+        CircularDNode<T> *head = tail->next;
+        if (head == tail)
+        { // Only one node
             delete head;
             tail = NULL;
         }
-        else {
+        else
+        {
             tail->next = head->next;
             head->next->prev = tail;
             delete head;
         }
     }
     // Delete from end
-    void deleteFromEnd() {
-        if (tail == NULL) {
+    void deleteFromEnd()
+    {
+        if (tail == NULL)
+        {
             cout << "List is empty\n";
             return;
         }
-        CircularDNode<T>* head = tail->next;
-        if (tail == head) { // Only one node
+        CircularDNode<T> *head = tail->next;
+        if (tail == head)
+        { // Only one node
             delete tail;
             tail = NULL;
         }
-        else {
-            CircularDNode<T>* temp = tail->prev;
+        else
+        {
+            CircularDNode<T> *temp = tail->prev;
             temp->next = head;
             head->prev = temp;
             delete tail;
@@ -115,44 +138,54 @@ public:
         }
     }
     // Delete node with specific key
-    void deleteData(T key) {
-        if (tail == NULL) {
+    void deleteData(T key)
+    {
+        if (tail == NULL)
+        {
             cout << "List is empty\n";
             return;
         }
-        CircularDNode<T>* curr = tail->next; // head
+        CircularDNode<T> *curr = tail->next; // head
         bool found = false;
-        do {
-            if (curr->data == key) {
+        do
+        {
+            if (curr->data == key)
+            {
                 found = true;
                 break;
             }
             curr = curr->next;
         } while (curr != tail->next);
-        if (!found) {
+        if (!found)
+        {
             cout << "Element not found\n";
             return;
         }
-        if (curr == tail && curr == tail->next) { // only one node
+        if (curr == tail && curr == tail->next)
+        { // only one node
             delete curr;
             tail = NULL;
         }
-        else {
+        else
+        {
             curr->prev->next = curr->next;
             curr->next->prev = curr->prev;
-            if (curr == tail) {
+            if (curr == tail)
+            {
                 tail = curr->prev;
             }
             delete curr;
         }
     }
     // Search operation
-    int search(T value) {
+    int search(T value)
+    {
         if (tail == NULL)
             return -1;
-        CircularDNode<T>* temp = tail->next; // head
+        CircularDNode<T> *temp = tail->next; // head
         int pos = 0;
-        do {
+        do
+        {
             if (temp->data == value)
                 return pos;
             temp = temp->next;
@@ -162,13 +195,15 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     cout << "Doubly Circular Linked List Demo\n";
 
     CircularDoublyLinkedList<int> cdll;
 
     int choice, val;
-    do {
+    do
+    {
         cout << "\nMenu:\n";
         cout << "1. Insert at beginning\n";
         cout << "2. Insert at end\n";
@@ -181,7 +216,8 @@ int main() {
         cout << "9. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-        switch (choice) {
+        switch (choice)
+        {
         case 1:
             cout << "Enter value to insert at beginning: ";
             cin >> val;
