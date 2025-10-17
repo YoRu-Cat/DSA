@@ -364,7 +364,7 @@ public:
     return true;
   }
 
-  // Get values level-wise (returns dynamic array)
+  // Get values level-wise
   V *getValsLvl(int &size)
   {
     size = cntN(root);
@@ -380,7 +380,7 @@ public:
     return arr;
   }
 
-  // Get values inorder (returns dynamic array)
+  // Get values inorder
   V *getValsIn(int &size)
   {
     size = cntN(root);
