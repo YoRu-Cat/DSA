@@ -1,0 +1,9 @@
+userId,username,email,password,createdDate,lastLogin
+U001,john_doe,john_doe@lhr.nu.edu.pk,password123,2024-01-15,2024-05-10
+U002,sarah_smith,sarah_smith@lhr.nu.edu.pk,securepass456,2024-02-20,2024-05-11
+U003,mike_wilson,mike_wilson@lhr.nu.edu.pk,mikepass789,2024-01-30,2024-05-09
+U004,emma_jones,emma_jones@lhr.nu.edu.pk,emma123456,2024-03-10,2024-05-12
+U005,admin_user,admin@lhr.nu.edu.pk,adminpass,2024-01-01,2024-05-12
+U006,david_brown,david_brown@lhr.nu.edu.pk,brownpass321,2024-02-15,2024-05-08
+U007,lisa_taylor,lisa_taylor@lhr.nu.edu.pk,lisa654321,2024-03-05,2024-05-11
+U008,alex_chen,alex_chen@lhr.nu.edu.pk,chenpass987,2024-01-25,2024-05-10
